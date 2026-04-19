@@ -5,7 +5,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Updated to latest Maven Parent -->
     <parent>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-parent</artifactId>
@@ -28,7 +27,6 @@
     </properties>
 
     <dependencies>
-        <!-- Maven Core dependencies - Updated to latest 3.9.x -->
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-core</artifactId>
@@ -45,7 +43,6 @@
             <version>3.9.15</version>
         </dependency>
 
-        <!-- Utilities -->
         <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-utils</artifactId>
@@ -69,20 +66,20 @@
 
     <build>
         <plugins>
-            <!-- Enforcer Plugin - Updated to allow Maven 3.8.4 (your Jenkins) but recommend upgrading -->
+            <!-- Maven Enforcer Plugin - FIXED to support your Jenkins Maven 3.8.4 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>3.6.2</version>
                 <executions>
                     <execution>
-                        <id>enforce</id>
+                        <id>enforce-maven-version</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
                         <configuration>
                             <rules>
-                                <!-- Supports your current Jenkins Maven 3.8.4 -->
+                                <!-- Relaxed to allow Maven 3.8.4 (your current Jenkins version) -->
                                 <requireMavenVersion>
                                     <version>[3.8.0,)</version>
                                 </requireMavenVersion>
